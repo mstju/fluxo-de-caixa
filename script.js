@@ -4,7 +4,7 @@ function calculateCashDifference() {
     var cashOutput = document.getElementById("cash-output").value;
     var finalCash = document.getElementById("final-cash").value;
 
-    var cashDifference = (parseFloat(finalCash) - parseFloat(cashOutput)) - (parseFloat(openingCash) + parseFloat(cashInput));
+    var cashDifference = (parseFloat(finalCash) - parseFloat(openingCash)) - (parseFloat(cashInput) - parseFloat(cashOutput));
     cashDifference = cashDifference.toFixed(2);
     document.getElementById("cash-difference").value = cashDifference;
 
@@ -16,9 +16,11 @@ function calculateCashDifference() {
         document.getElementById("cash-difference").value = "Sobrou R$ " + cashDifference;
     } else {
         document.getElementById("cash-difference").style.color = "black";
-        document.getElementById("cash-difference").value = "Não há diferença. Tudo certo!";
+        document.getElementById("cash-difference").value = "Não há diferença, tudo está correto!";
     }
-  }
+}
+
+
 
   document.getElementById("opening-cash").addEventListener("keyup", calculateCashDifference);
   document.getElementById("cash-input").addEventListener("keyup", calculateCashDifference);
